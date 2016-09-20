@@ -9,10 +9,12 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
+let prefs = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +23,25 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBOutlet weak var TipThree: UITextField!
+    @IBOutlet weak var TipTwo: UITextField!
+    @IBOutlet weak var TipOne: UITextField!
+    
+    @IBAction func Tip1(sender: AnyObject) {
+        prefs.setDouble(Double(TipOne.text!)!, forKey: "percentOne")
+    }
+   
+    @IBAction func onTap(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func Tip2(sender: AnyObject) {
+        prefs.setDouble(Double(TipTwo.text!)!, forKey: "percentTwo")
+    }
+    
+    @IBAction func Tip3(sender: AnyObject) {
+        prefs.setDouble(Double(TipThree.text!)!, forKey: "percentThree")
+    }
     /*
     // MARK: - Navigation
 
